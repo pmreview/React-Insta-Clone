@@ -1,6 +1,8 @@
 import React from 'react';
 import './PostContainer.css'
 
+import PropTypes from 'prop-types';
+
 import CommentSection from '../CommentSection/CommentSection';
 
 const PostContainer = props => {
@@ -17,7 +19,7 @@ const PostContainer = props => {
                     <div className="likes-comments">
                         <p className="likes"><strong>{props.post.likes} likes</strong></p>
                         {props.post.comments.map(comment => {
-                            return <CommentSection comment={comment} />
+                            return <CommentSection key={comment.id} comment={comment} />
                         })}
                         <input
                             className="input-comment"
@@ -28,6 +30,15 @@ const PostContainer = props => {
             </div>
         </div>
     )
+}
+
+PostContainer.propTypes = {
+    post: PropTypes.shape({
+        username: PropTypes.string,
+        thumbnailUrl: PropTypes.string,
+        imageUrl: PropTypes.string,
+        likes: PropTypes.number,
+    }).isRequired
 }
 
 export default PostContainer;

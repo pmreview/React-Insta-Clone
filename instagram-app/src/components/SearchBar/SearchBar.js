@@ -14,9 +14,9 @@ const SearchBar = () => {
             />
 
             <div className="buttons">
-                <i id="compass-icon" class="far fa-compass"></i>
-                <i id="heart-icon" class="far fa-heart"></i>
-                <i id="user-icon" class="far fa-user"></i>
+                <i id="compass-icon" className="far fa-compass"></i>
+                <i id="heart-icon" className="far fa-heart"></i>
+                <i id="user-icon" className="far fa-user"></i>
             </div>
         </div>
     )

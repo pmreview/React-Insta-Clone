@@ -10,8 +10,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: dummyData,
+      data: [],
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      data: dummyData
+    });
   }
 
   render() {
@@ -19,7 +25,7 @@ class App extends React.Component {
       <div className="App">
         <SearchBar />
         {this.state.data.map(post => {
-          return <PostContainer post={post}/>
+          return <PostContainer key={post.id} post={post}/>
         })}
       </div>
     );
