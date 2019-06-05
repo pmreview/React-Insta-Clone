@@ -19,10 +19,6 @@ const PostContainer = props => {
                     <div className="likes-comments">
                         <p className="likes"><strong>{props.post.likes} likes</strong></p>
                             <CommentSection id={props.post.id} comments={props.post.comments} />
-                        <input
-                            className="input-comment"
-                            placeholder="Add a comment..."
-                        />
                     </div>
                 </div>
             </div>
