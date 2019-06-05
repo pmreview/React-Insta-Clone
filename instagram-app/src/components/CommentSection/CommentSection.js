@@ -3,10 +3,14 @@ import './CommentSection.css'
 
 import PropTypes from 'prop-types';
 
+import Comment from './Comment'
+
 const CommentSection = props => {
     return (
-        <div className="comment">
-            <p className="username-text"><strong>{props.comment.username}</strong> {props.comment.text}</p>
+        <div>
+            {props.comments.map(comment => {
+                return <Comment key={comment.id} comment={comment} />
+            })}
         </div>
     )
 }

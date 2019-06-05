@@ -18,9 +18,7 @@ const PostContainer = props => {
                     <img className="img-post" src={props.post.imageUrl} alt="thumb" />
                     <div className="likes-comments">
                         <p className="likes"><strong>{props.post.likes} likes</strong></p>
-                        {props.post.comments.map(comment => {
-                            return <CommentSection key={comment.id} comment={comment} />
-                        })}
+                            <CommentSection id={props.post.id} comments={props.post.comments} />
                         <input
                             className="input-comment"
                             placeholder="Add a comment..."
