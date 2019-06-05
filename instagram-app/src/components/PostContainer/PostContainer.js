@@ -17,8 +17,12 @@ const PostContainer = props => {
                 <div className="post-container">
                     <img className="img-post" src={props.post.imageUrl} alt="thumb" />
                     <div className="likes-comments">
-                        <p className="likes"><strong>{props.post.likes} likes</strong></p>
-                            <CommentSection id={props.post.id} comments={props.post.comments} />
+                            <CommentSection
+                                id={props.post.id}
+                                comments={props.post.comments}
+                                post={props.post}
+                                likes={props.post.likes}
+                            />
                     </div>
                 </div>
             </div>

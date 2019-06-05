@@ -12,6 +12,7 @@ class CommentSection extends React.Component {
             comments: props.comments,
             username: "Jay",
             text: "",
+            likes: props.likes,
         }
     }
 
@@ -23,15 +24,11 @@ class CommentSection extends React.Component {
             text: this.state.text,
         }
 
-        console.log("newtext", newtext)
-
         this.setState({
             comments: [...this.state.comments, newtext],
             username: "Jay",
             text: "",
         })
-
-        console.log(this.state.comments)
     }
 
     handleChanges = event => {
@@ -41,9 +38,25 @@ class CommentSection extends React.Component {
         });
     }
 
+    likeButton = event => {
+        const currentLikes = this.state.likes
+        const addlike = currentLikes + 1;
+
+        this.setState({
+            likes: addlike
+        })
+        console.log(addlike)
+    }
+
     render(){
         return (
             <div>
+                <button onClick={this.likeButton}>
+                    <i id="heart-icon" className="far fa-heart"></i>
+                </button>
+
+                <p className="likes"><strong>{this.state.likes} likes</strong></p>
+
                 {this.state.comments.map(comment => {
                     return <Comment key={comment.id} comment={comment} />
                 })}
