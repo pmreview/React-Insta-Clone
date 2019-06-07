@@ -1,9 +1,13 @@
 import React from 'react'
 
-const withAuthenticate = FirstComp => 
+const withAuthenticate = FirstComp => SecondComp =>
     class extends React.Component {
         render(){
-            return <FirstComp />
+            if(localStorage.getItem('user')) {
+                return <FirstComp />
+            } else {
+                return <SecondComp />
+            }
         }
     }
 
